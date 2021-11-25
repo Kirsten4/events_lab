@@ -1,0 +1,32 @@
+body {
+    background-color:aquamarine;
+    color:indigo;
+    margin: 10px;
+}
+
+label {
+    vertical-align:middle;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+textarea {
+    margin-bottom: 10px;
+}
+
+#recurring {
+    vertical-align: middle;
+    margin-bottom: 0px;
+}
+
+#submit{
+    margin-top: 10px;
+    background-color: orange;
+    color: royalblue;
+    border: darkmagenta dashed 3px;
+    font-weight: bolder;
+    
+}
+

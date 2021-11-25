@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="/static/style.css">
+        <title>{{ title }}</title>
+    </head>
+    <body>
+        <header>
+            <h1>Events</h1>
+        </header>
+        <form action="/events" method="post">
+            <label for="name_of_event">Name of Event</label><br>
+            <input type="text" name="name_of_event" id="name_of_event"><br>
+
+            <label for="date">Date</label><br>
+            <input type="date" name="date" id="date"><br>
+
+            <label for="number_of_guests">Number of Guests</label><br>
+            <input type="text" name="number_of_guests" id="number_of_guests"><br>
+
+            <label for="room_location">Room Location</label><br>
+            <input type="text" name="room_location" id="room_location"><br>
+
+            <label for="description">Description</label><br>
+            <textarea name="description" id="description" cols="30" rows="2"></textarea><br>
+
+            <label for="recurring">Recurring</label>
+            <input type="checkbox" value="1" name="recurring" id="recurring"><br>
+
+            <input id="submit" type="submit" value="Add Event">
+        </form>
+        <ul>
+            {% for event in event_list  %}
+                <li>
+                    {{ event.name_of_event }} {{ event.date }} {{ event.number_of_guests }} {{ event.room_location }} {{ event.description }} 
+                    {% if event.recurring %}
+                        🔄
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+        <form action="/events/delete/" method="post">
+            <label for="deleted_event">Delete Event:</label><br>
+            <input type="text" name="deleted_event" id="deleted_event"><br>
+
+            <input id="submit" type="submit" value="Delete Event">
+        </form>
+    </body>
+</html>
